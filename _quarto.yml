@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - admin
+    - files
+    - assets
+
+website:
+  title: "الموقع الأكاديمي"
+  description: "الموقع الأكاديمي الشخصي — جامعة محمد البشير الإبراهيمي برج بوعريريج"
+  search: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: الرئيسية
+      - href: about.qmd
+        text: عن الأستاذ
+      - href: research.qmd
+        text: البحث العلمي
+      - href: publications.qmd
+        text: المنشورات
+      - href: teaching.qmd
+        text: التدريس
+      - href: resources.qmd
+        text: الموارد التعليمية
+      - href: contact.qmd
+        text: اتصل بي
+    right:
+      - icon: github
+        href: https://github.com/
+  page-footer:
+    center: "© 2026 — الموقع الأكاديمي | جامعة محمد البشير الإبراهيمي برج بوعريريج"
+
+format:
+  html:
+    theme: cosmo
+    css: assets/styles.css
+    lang: ar
+    dir: rtl
+    toc: true
+    smooth-scroll: true
+
+execute:
+  freeze: auto

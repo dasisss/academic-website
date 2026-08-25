@@ -1,0 +1,91 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "files"
+public_folder: "/files"
+
+locale: "ar"
+
+publish_mode: simple
+
+collections:
+  - name: "pages"
+    label: "صفحات الموقع"
+    files:
+      - label: "الرئيسية"
+        name: "home"
+        file: "index.qmd"
+        fields:
+          - {label: "العنوان", name: "title", widget: "string"}
+          - {label: "المحتوى", name: "body", widget: "markdown"}
+      - label: "عن الأستاذ"
+        name: "about"
+        file: "about.qmd"
+        fields:
+          - {label: "العنوان", name: "title", widget: "string"}
+          - {label: "المحتوى", name: "body", widget: "markdown"}
+      - label: "البحث العلمي"
+        name: "research"
+        file: "research.qmd"
+        fields:
+          - {label: "العنوان", name: "title", widget: "string"}
+          - {label: "المحتوى", name: "body", widget: "markdown"}
+      - label: "التدريس"
+        name: "teaching"
+        file: "teaching.qmd"
+        fields:
+          - {label: "العنوان", name: "title", widget: "string"}
+          - {label: "المحتوى", name: "body", widget: "markdown"}
+      - label: "الموارد التعليمية"
+        name: "resources"
+        file: "resources.qmd"
+        fields:
+          - {label: "العنوان", name: "title", widget: "string"}
+          - {label: "المحتوى", name: "body", widget: "markdown"}
+      - label: "الاتصال"
+        name: "contact"
+        file: "contact.qmd"
+        fields:
+          - {label: "العنوان", name: "title", widget: "string"}
+          - {label: "المحتوى", name: "body", widget: "markdown"}
+
+  - name: "publications"
+    label: "المنشورات العلمية"
+    folder: "content/publications"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "السنة", name: "year", widget: "number", value_type: "int", min: 1900, max: 2100}
+      - {label: "نوع المنشور", name: "type", widget: "select", options: ["مقال", "كتاب", "فصل في كتاب", "مؤتمر", "أطروحة", "أخرى"]}
+      - {label: "المجلة/الناشر", name: "venue", widget: "string", required: false}
+      - {label: "DOI", name: "doi", widget: "string", required: false}
+      - {label: "الملخص", name: "abstract", widget: "text", required: false}
+      - {label: "ملف PDF", name: "pdf", widget: "file", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown", required: false}
+
+  - name: "teaching_materials"
+    label: "المحاضرات والمواد"
+    folder: "content/teaching"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "عنوان المحاضرة", name: "title", widget: "string"}
+      - {label: "المقرر", name: "course", widget: "select", options: ["القانون الدستوري", "القانون الإداري", "منهجية البحث القانوني", "أخرى"]}
+      - {label: "السنة الجامعية", name: "academic_year", widget: "string", required: false}
+      - {label: "ملف PDF", name: "pdf", widget: "file", required: false}
+      - {label: "العرض التقديمي", name: "slides", widget: "file", required: false}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+
+  - name: "resources"
+    label: "موارد تعليمية"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "التصنيف", name: "category", widget: "select", options: ["PDF", "عرض", "رابط", "تمرين", "اختبار", "أخرى"]}
+      - {label: "الملف", name: "file", widget: "file", required: false}
+      - {label: "الرابط", name: "link", widget: "string", required: false}
+      - {label: "الوصف", name: "body", widget: "markdown"}

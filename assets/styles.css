@@ -1,0 +1,6 @@
+body { font-family: "Noto Sans Arabic", "Noto Sans", Arial, sans-serif; direction: rtl; }
+.navbar { direction: rtl; }
+.navbar-brand { font-weight: 700; }
+h1,h2,h3 { font-weight: 700; }
+main { line-height: 1.9; }
+.hero-card { padding: 1.5rem; border-radius: 16px; margin: 1rem 0 2rem; border: 1px solid rgba(0,0,0,.12); }
